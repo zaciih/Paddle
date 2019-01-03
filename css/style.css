@@ -1,0 +1,80 @@
+body {
+  font-family: fantasy;
+  text-align: center;
+  /* margin: 100px auto */
+}
+
+.container {
+  width:400px;
+  height:300px;
+  margin: 10% auto;
+  background: #999;
+  border-radius: 1em;
+  position: relative;
+}
+
+#paddle {
+  height: 25%;
+  width: 25%;
+  position: absolute;
+  /* border: solid medium black; */
+}
+
+img {
+  pointer-events: none;
+}
+
+#ball {
+  height:30px;
+  width:30px;
+  background: lime;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.btn-container {
+  text-align: center;
+}
+
+#btn {
+  font-size: 1.5em;
+  padding:.5em 1.5em;
+  background: none;
+  border-radius: 1.5em;
+  border: 2px solid #999;
+  color:#999;
+  transition: .2s;
+  outline: none;
+}
+#btn:hover {
+  background: #999;
+  color: white;
+  border: 2px solid #999;
+}
+#btn:active {
+  background: #666;
+  color: white;
+  border: 2px solid #666;
+}
+
+#restart_btn {
+  display: none;
+  font-size: 1.5em;
+  padding:.5em 1.5em;
+  background: none;
+  border-radius: 1.5em;
+  border: 2px solid #999;
+  color:#999;
+  transition: .2s;
+  outline: none;
+}
+#restart_btn:hover {
+  background: #999;
+  color: white;
+  border: 2px solid #999;
+}
+#restart_btn:active {
+  background: #666;
+  color: white;
+  border: 2px solid #666;
+}
