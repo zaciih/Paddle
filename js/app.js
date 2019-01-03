@@ -1,13 +1,18 @@
 $(function(){
 
-  var interval;
+  var ball_interval;
   var progRunning = false;
+
+  var time_interval;
+
+//target timer
+  var milisec_timer = $("#mil_seconds");
+  var milisec_count_up = milisec_timer.html();
+  var sec_timer = $("#seconds");
+  var sec_count_up = sec_timer.html();
 
 //target the ball object
   var ball = $("#ball");
-
-//set ball radius
-  var ball_radius = 20;
 
 //target the paddle object
   var paddle = $("#paddle");
@@ -42,7 +47,8 @@ $(function(){
       //stop the ball
       progRunning = false;
       $("#restart_btn").hide();
-      clearInterval(interval);
+      clearInterval(ball_interval);
+      clearInterval(time_interval);
     } else {
         $("#restart_btn").show();
         $("#btn").html("Stop");
@@ -58,7 +64,7 @@ $(function(){
 
         //start the ball
         progRunning = true;
-        interval = setInterval(function(){
+        ball_interval = setInterval(function(){
         //find coordinates of the ball and container edges
           var ball_left = ball.offset().left
           var ball_right = ball_left + ball.width();
@@ -152,6 +158,18 @@ $(function(){
              direction_y = "+";
            }
          };
+        }, 10)
+        time_interval = setInterval(function(){
+          milisec_count_up ++;
+          milisec_timer.html(":" +milisec_count_up);
+          if (sec_count_up <= 9) {
+            sec_timer.html("0" +sec_count_up)
+          } else {
+          sec_timer.html(sec_count_up)};
+          if (milisec_count_up == 99) {
+            milisec_count_up = 0;
+            sec_count_up ++;
+          }
         }, 10)
       }
   })
