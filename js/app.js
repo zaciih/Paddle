@@ -19,6 +19,9 @@ $(function(){
 //target the paddle object
   var paddle = $("#paddle");
 
+//point system
+  // var points =
+
 //target container
   var container = $("#container");
 
@@ -83,6 +86,7 @@ $(function(){
           var paddle_bottom = paddle_top + paddle.height();
           var paddle_left = paddle.offset().left
           var paddle_right = paddle_left + paddle.width();
+        //if ball hits paddle bounce up and add 1 point
           if (ball_bottom >= paddle_top) {
             if (ball_top <= paddle_bottom) {
               if (ball_right > paddle_left) {

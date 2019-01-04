@@ -4,11 +4,24 @@ body {
   /* margin: 100px auto */
 }
 
+.info_container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding-left: 500px;
+  padding-right: 500px;
+}
+
+.score_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
 .time_container {
   display: flex;
   justify-content: center;
   flex-direction: row;
-
 }
 
 .container {
