@@ -10,6 +10,8 @@ $(function(){
   var milisec_count_up = milisec_timer.html();
   var sec_timer = $("#seconds");
   var sec_count_up = sec_timer.html();
+  var min_timer = $("#minutes");
+  var min_count_up = min_timer.html();
 
 //target the ball object
   var ball = $("#ball");
@@ -162,10 +164,20 @@ $(function(){
         time_interval = setInterval(function(){
           milisec_count_up ++;
           milisec_timer.html(":" +milisec_count_up);
+          if (min_count_up <= 9) {
+            min_timer.html("0" + min_count_up + ":");
+          } else {
+            min_timer.html(min_count_up + ":");
+            }
+          if (sec_count_up == 60) {
+            sec_count_up = 0;
+            min_count_up ++;
+          }
           if (sec_count_up <= 9) {
             sec_timer.html("0" +sec_count_up)
           } else {
-          sec_timer.html(sec_count_up)};
+          sec_timer.html(sec_count_up)
+            }
           if (milisec_count_up == 99) {
             milisec_count_up = 0;
             sec_count_up ++;
