@@ -58,8 +58,8 @@ $(function(){
         //mouse move on start paddle follows cursor
         $("#container").mousemove(function(e) {
             paddle.data("dragging", true);
-            paddle.css("left", e.clientX - paddle.width()-450);
-            paddle.css("top", e.clientY - paddle.height()-175);
+            paddle.css("left", e.pageX - paddle.width()-460);
+            paddle.css("top", e.pageY - paddle.height()-165);
         });
 
 
