@@ -1,13 +1,20 @@
 $(function(){
 
-  var interval;
+  var ball_interval;
   var progRunning = false;
+
+  var time_interval;
+
+//target timer
+  var milisec_timer = $("#mil_seconds");
+  var milisec_count_up = milisec_timer.html();
+  var sec_timer = $("#seconds");
+  var sec_count_up = sec_timer.html();
+  var min_timer = $("#minutes");
+  var min_count_up = min_timer.html();
 
 //target the ball object
   var ball = $("#ball");
-
-//set ball radius
-  var ball_radius = 20;
 
 //target the paddle object
   var paddle = $("#paddle");
@@ -42,7 +49,8 @@ $(function(){
       //stop the ball
       progRunning = false;
       $("#restart_btn").hide();
-      clearInterval(interval);
+      clearInterval(ball_interval);
+      clearInterval(time_interval);
     } else {
         $("#restart_btn").show();
         $("#btn").html("Stop");
@@ -50,15 +58,15 @@ $(function(){
         //mouse move on start paddle follows cursor
         $("#container").mousemove(function(e) {
             paddle.data("dragging", true);
-            paddle.css("left", e.clientX - paddle.width()-450);
-            paddle.css("top", e.clientY - paddle.height()-175);
+            paddle.css("left", e.pageX - paddle.width()-460);
+            paddle.css("top", e.pageY - paddle.height()-165);
         });
 
 
 
         //start the ball
         progRunning = true;
-        interval = setInterval(function(){
+        ball_interval = setInterval(function(){
         //find coordinates of the ball and container edges
           var ball_left = ball.offset().left
           var ball_right = ball_left + ball.width();
@@ -153,6 +161,28 @@ $(function(){
            }
          };
         }, 10)
+        time_interval = setInterval(function(){
+          milisec_count_up ++;
+          milisec_timer.html(":" +milisec_count_up);
+          if (min_count_up <= 9) {
+            min_timer.html("0" + min_count_up + ":");
+          } else {
+            min_timer.html(min_count_up + ":");
+            }
+          if (sec_count_up == 60) {
+            sec_count_up = 0;
+            min_count_up ++;
+          }
+          if (sec_count_up <= 9) {
+            sec_timer.html("0" +sec_count_up)
+          } else {
+          sec_timer.html(sec_count_up)
+            }
+          if (milisec_count_up == 99) {
+            milisec_count_up = 0;
+            sec_count_up ++;
+          }
+        }, 10)
       }
   })
   $("#restart_btn").click(function(){
@@ -165,6 +195,9 @@ $(function(){
     gravity = 0.1;
     gravityspeed = 0;
     grav_decrease = -5;
+    milisec_count_up = 0;
+    sec_count_up = 0;
+    min_count_up = 0;
   })
 
 });

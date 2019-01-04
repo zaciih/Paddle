@@ -4,10 +4,17 @@ body {
   /* margin: 100px auto */
 }
 
+.time_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+}
+
 .container {
   width:400px;
   height:300px;
-  margin: 10% auto;
+  margin: 5% auto;
   background: #999;
   border-radius: 1em;
   position: relative;
