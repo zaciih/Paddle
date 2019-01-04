@@ -195,6 +195,9 @@ $(function(){
     gravity = 0.1;
     gravityspeed = 0;
     grav_decrease = -5;
+    milisec_count_up = 0;
+    sec_count_up = 0;
+    min_count_up = 0;
   })
 
 });
