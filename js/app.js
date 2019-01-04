@@ -161,6 +161,7 @@ $(function(){
            }
          };
         }, 10)
+      //timer interval setup
         time_interval = setInterval(function(){
           milisec_count_up ++;
           milisec_timer.html(":" +milisec_count_up);
@@ -185,6 +186,7 @@ $(function(){
         }, 10)
       }
   })
+//restart button
   $("#restart_btn").click(function(){
     console.log("clicked");
     posx = 0;
