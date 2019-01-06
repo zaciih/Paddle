@@ -57,8 +57,8 @@ $(function(){
       clearInterval(ball_interval);
       clearInterval(time_interval);
     } else {
-        $("#restart_btn").show();
-        $("#btn").html("Stop");
+        // $("#restart_btn").show();
+        $("#btn").html("Pause");
 
         //mouse move on start paddle follows cursor
         $("#container").mousemove(function(e) {
@@ -148,6 +148,11 @@ $(function(){
           }
           if (ball_bottom >= container_bottom){
             direction_y = "-";
+            clearInterval(ball_interval);
+            clearInterval(time_interval);
+            $("#btn").hide();
+            $("#restart_btn").show();
+          //gravity and friction decreases per hit
             if (grav_decrease < 0){
             grav_decrease = grav_decrease+0.1;
           } else {
@@ -160,7 +165,6 @@ $(function(){
             friction_increase = 0.0
           }
             frictionspeed = friction_increase;
-            // console.log(grav_decrease);
             gravityspeed = grav_decrease;
           } else if (ball_top <= container_top) {
              direction_y = "+";
@@ -194,20 +198,21 @@ $(function(){
   })
 //restart button
   $("#restart_btn").click(function(){
-    console.log("clicked");
-    posx = 0;
-    posy = 0;
-    friction = 0;
-    frictionspeed = 0;
-    friction_increase = 5;
-    gravity = 0.1;
-    gravityspeed = 0;
-    grav_decrease = -5;
-    milisec_count_up = 0;
-    sec_count_up = 0;
-    min_count_up = 0;
-    score_up = 0;
-    score.html(0);
+  //reloads the page - resestting the game
+    document.location.reload();
+    // posx = 0;
+    // posy = 0;
+    // friction = 0;
+    // frictionspeed = 0;
+    // friction_increase = 5;
+    // gravity = 0.1;
+    // gravityspeed = 0;
+    // grav_decrease = -5;
+    // milisec_count_up = 0;
+    // sec_count_up = 0;
+    // min_count_up = 0;
+    // score_up = 0;
+    // score.html(0);
   })
 
 });
