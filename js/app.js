@@ -5,6 +5,7 @@ $(function(){
 
   var time_interval;
 
+
 //target timer
   var milisec_timer = $("#mil_seconds");
   var milisec_count_up = milisec_timer.html();
@@ -19,8 +20,9 @@ $(function(){
 //target the paddle object
   var paddle = $("#paddle");
 
-//point system
-  // var points =
+//score system
+  var score = $("#score")
+  var score_up = score.html();
 
 //target container
   var container = $("#container");
@@ -61,11 +63,9 @@ $(function(){
         //mouse move on start paddle follows cursor
         $("#container").mousemove(function(e) {
             paddle.data("dragging", true);
-            paddle.css("left", e.pageX - paddle.width()-460);
-            paddle.css("top", e.pageY - paddle.height()-165);
+            paddle.css("left", e.pageX - paddle.width()-260);
+            paddle.css("top", e.pageY - paddle.height()-150);
         });
-
-
 
         //start the ball
         progRunning = true;
@@ -86,19 +86,21 @@ $(function(){
           var paddle_bottom = paddle_top + paddle.height();
           var paddle_left = paddle.offset().left
           var paddle_right = paddle_left + paddle.width();
-        //if ball hits paddle bounce up and add 1 point
+        //if ball hits paddle bounce up
           if (ball_bottom >= paddle_top) {
             if (ball_top <= paddle_bottom) {
               if (ball_right > paddle_left) {
                 if (ball_left < paddle_right) {
                   console.log("ball is on paddle");
-                  direction_y = "-";
-                  frictionspeed = friction_increase;
+                  direction_y = "-";                    frictionspeed = friction_increase;
                   gravityspeed = grav_decrease;
-                }
+                  //if ball hits paddle add points
+                  score.html(score_up);
+                  score_up ++;
               }
             }
-          };
+          }
+        };
 
         //ball movement
           ball.css({
