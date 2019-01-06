@@ -65,6 +65,7 @@ img {
   color:#999;
   transition: .2s;
   outline: none;
+  margin: -50px;
 }
 #btn:hover {
   background: #999;
@@ -87,6 +88,7 @@ img {
   color:#999;
   transition: .2s;
   outline: none;
+  margin: -50px;
 }
 #restart_btn:hover {
   background: #999;
