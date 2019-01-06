@@ -22,6 +22,10 @@ $(function(){
 //target the paddle object
   var paddle = $("#paddle");
 
+//difficulty level
+  var level = $("#level");
+  var level_up = level.html();
+
 //score system
   var score = $("#score")
   var score_up = score.html();
@@ -199,7 +203,8 @@ $(function(){
         speed_up_interval = setInterval(function(){
           friction_increase +=0.25;
           grav_decrease -=0.2;
-          console.log(friction_increase);
+          level_up ++;
+          level.html(level_up);
         },5000);
       }
   })
