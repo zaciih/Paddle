@@ -4,16 +4,29 @@ body {
   /* margin: 100px auto */
 }
 
+.info_container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding-left: 500px;
+  padding-right: 500px;
+}
+
+.score_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
 .time_container {
   display: flex;
   justify-content: center;
   flex-direction: row;
-
 }
 
 .container {
-  width:400px;
-  height:300px;
+  width:800px;
+  height:400px;
   margin: 5% auto;
   background: #999;
   border-radius: 1em;
@@ -21,8 +34,8 @@ body {
 }
 
 #paddle {
-  height: 25%;
-  width: 25%;
+  height: 100px;
+  width: 100px;
   position: absolute;
   /* border: solid medium black; */
 }
