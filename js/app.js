@@ -5,6 +5,8 @@ $(function(){
 
   var time_interval;
 
+  var speed_up_interval;
+
 
 //target timer
   var milisec_timer = $("#mil_seconds");
@@ -193,7 +195,12 @@ $(function(){
             milisec_count_up = 0;
             sec_count_up ++;
           }
-        }, 10)
+        }, 10);
+        speed_up_interval = setInterval(function(){
+          friction_increase +=0.25;
+          grav_decrease -=0.2;
+          console.log(friction_increase);
+        },5000);
       }
   })
 //restart button
