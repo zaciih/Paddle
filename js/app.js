@@ -206,6 +206,8 @@ $(function(){
     milisec_count_up = 0;
     sec_count_up = 0;
     min_count_up = 0;
+    score_up = 0;
+    score.html(0);
   })
 
 });
