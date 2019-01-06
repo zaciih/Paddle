@@ -22,6 +22,10 @@ $(function(){
 //target the paddle object
   var paddle = $("#paddle");
 
+//difficulty level
+  var level = $("#level");
+  var level_up = level.html();
+
 //score system
   var score = $("#score")
   var score_up = score.html();
@@ -64,9 +68,10 @@ $(function(){
 
         //mouse move on start paddle follows cursor
         $("#container").mousemove(function(e) {
+          var game_area = e.target.getBoundingClientRect();
             paddle.data("dragging", true);
-            paddle.css("left", e.pageX - paddle.width()-260);
-            paddle.css("top", e.pageY - paddle.height()-150);
+            paddle.css("left", e.clientX - game_area.left - paddle.width()/2);
+            paddle.css("top", e.clientY - game_area.top - paddle.height()/2);
         });
 
         //start the ball
@@ -152,6 +157,7 @@ $(function(){
             direction_y = "-";
             clearInterval(ball_interval);
             clearInterval(time_interval);
+            clearInterval(speed_up_interval);
             $("#btn").hide();
             $("#restart_btn").show();
           //gravity and friction decreases per hit
@@ -199,7 +205,8 @@ $(function(){
         speed_up_interval = setInterval(function(){
           friction_increase +=0.25;
           grav_decrease -=0.2;
-          console.log(friction_increase);
+          level_up ++;
+          level.html(level_up);
         },5000);
       }
   })
