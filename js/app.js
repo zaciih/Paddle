@@ -37,6 +37,8 @@ $(function(){
   var posx = 0;
   var posy = 0;
 
+  test
+
 //set ball direction
   var direction_x = "+"
   var direction_y = "+"
